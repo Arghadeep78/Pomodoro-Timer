@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pomodoro Timer</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="body-overlay"></div>
+
+        <div class="timerContainer">
+            <div class="typeOfTimer">
+                <button class="pomodoro">Pomodoro</button>
+                <button class="shortBreak">Short Break</button>
+                <button class="longBreak">Long Break</button>
+            </div>
+
+            <div class="timer">25:00</div>
+
+            <div class="commands">
+                <button class="startPause" aria-label="Start/Pause">
+                    Start
+                </button>
+                <button class="reset" aria-label="Reset"></button>
+                <button class="setting" aria-label="Settings"></button>
+            </div>
+        </div>
+
+        <div class="settingsModal hidden">
+            <h2>Settings</h2>
+            <div class="settingsContent">
+                <div class="pomodoroInput timeInput">
+                    <label>Pomodoro</label>
+                    <input
+                        type="number"
+                        id="pomodoroDuration"
+                        min="1"
+                        max="120"
+                        value="25"
+                    />
+                    <div class="units">minutes</div>
+                </div>
+
+                <div class="shortBreakInput timeInput">
+                    <label>Short Break</label>
+                    <input
+                        type="number"
+                        id="shortBreakDuration"
+                        min="1"
+                        max="60"
+                        value="5"
+                    />
+                    <div class="units">minutes</div>
+                </div>
+
+                <div class="longBreakInput timeInput">
+                    <label>Long Break</label>
+                    <input
+                        type="number"
+                        id="longBreakDuration"
+                        min="1"
+                        max="120"
+                        value="10"
+                    />
+                    <div class="units">minutes</div>
+                </div>
+            </div>
+            <div class="settingsButtons">
+                <button class="resetSettings">Reset</button>
+                <button class="saveSettings">Save</button>
+                <button class="closeSettings">Close</button>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

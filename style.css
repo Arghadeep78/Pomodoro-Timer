@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap");
+
+body {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.body-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.timerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.typeOfTimer {
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 15px;
+}
+
+.timer {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 150px;
+    font-weight: 600;
+    letter-spacing: -0.25rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05rem; /* Adjust as needed */
+}
+
+.commands {
+    color: transparent;
+    display: flex;
+    gap: 2px;
+    font-size: 20px;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    border-radius: 50px;
+    padding: 7px 20px;
+}
+
+.startPause {
+    width: 120px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.commands button {
+    border: solid white 2px;
+    color: rgb(21, 35, 35);
+    background-color: white;
+}
+.settingsButtons button.resetSettings {
+    background-color: #ff6b6b; /* Red background for reset */
+    border: 2px solid #ff6b6b; /* Matching border color */
+    color: white; /* White text for contrast */
+    background-repeat: no-repeat;
+    background-position: 10px center; /* Adjust icon position */
+    background-size: 20px; /* Adjust icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.settingsButtons button.resetSettings:hover {
+    background-color: #410e12; /* Darker red on hover */
+    border: 2px solid #ff4757; /* Matching border color on hover */
+}
+
+.typeOfTimer button {
+    border: solid white 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.typeOfTimer button.active {
+    background-color: white;
+    color: rgb(21, 35, 35);
+    border: 2px solid white;
+}
+
+.commands button.setting,
+.commands button.reset {
+    background-color: transparent;
+    border: none;
+    width: 65px;
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+}
+
+.commands button.setting {
+    background-image: url("settings.png");
+}
+
+.commands button.reset {
+    background-image: url("resett.png");
+}
+
+.commands button.startPause:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.typeOfTimer button:hover {
+    color: rgb(21, 35, 35);
+    background-color: white;
+}
+
+.settingsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.settingsModal h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(21, 35, 35);
+}
+
+.settingsContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.settingsContent label {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 16px;
+    color: rgb(21, 35, 35);
+    flex: 1;
+}
+
+.settingsContent input {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: left;
+    border: 2px solid rgb(21, 35, 35);
+    border-radius: 5px;
+}
+
+.settingsContent .units {
+    font-weight: 500;
+    display: flex;
+    padding: 5px 0px;
+}
+
+.settingsModal .timeInput {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.settingsButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.settingsButtons button {
+    background-color: white;
+    border: 2px solid rgb(21, 35, 35);
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.settingsButtons button:hover {
+    background-color: rgb(21, 35, 35);
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Media query for screens below 650px */
+@media (max-width: 650px) {
+    .timer {
+        font-size: 100px;
+        letter-spacing: -0.1rem;
+    }
+
+    .typeOfTimer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .typeOfTimer button {
+        width: 100%;
+        padding: 8px 16px;
+    }
+
+    .commands {
+        gap: 10px;
+    }
+
+    .commands button {
+        width: 50%;
+        padding: 8px 0px;
+    }
+
+    .settingsModal {
+        width: 75%;
+        /* max-width: 300px; */
+        /* padding: 10px; */
+    }
+
+    .settingsContent {
+        gap: 10px;
+    }
+
+    .commands button.setting,
+    .commands button.reset {
+        background-size: 80%;
+    }
+}
+
+/* Media query for screens below 650px */
+@media (max-width: 370px) {
+    .timeInput label {
+        font-size: 14px;
+    }
+}
+
+/* Media query for screens below 650px */
+@media (max-width: 340px) {
+    .timeInput label {
+        font-size: 12px;
+    }
+}
